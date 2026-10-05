@@ -17,7 +17,8 @@ function Figure({ src, width, height, alt, caption }: FigureProps) {
         width={width}
         height={height}
         alt={alt}
-        sizes="(min-width: 1024px) 768px, 100vw"
+        quality={90}
+        sizes="(min-width: 1024px) 1100px, 100vw"
         className="h-auto w-full rounded-lg border border-border"
       />
       {caption ? (
@@ -45,7 +46,8 @@ function PhoneGallery({ images, caption }: PhoneGalleryProps) {
             width={image.width}
             height={image.height}
             alt={image.alt}
-            sizes="(min-width: 768px) 240px, 33vw"
+            quality={90}
+            sizes="(min-width: 768px) 360px, 33vw"
             className="h-auto w-full rounded-xl border border-border"
           />
         ))}

@@ -22,7 +22,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <li
       style={{ "--stack-top": `${5 + index}rem` } as CSSProperties}
-      className="group relative grid overflow-hidden rounded-2xl border border-border bg-surface lg:sticky lg:top-(--stack-top) lg:grid-cols-[0.9fr_1.1fr]"
+      className="group relative grid overflow-hidden rounded-2xl border border-border bg-surface lg:sticky lg:top-(--stack-top) lg:grid-cols-[0.8fr_1.2fr]"
     >
       <div className="order-2 flex flex-col justify-between gap-8 p-6 sm:p-8 lg:order-1 lg:p-10">
         <div className="flex flex-col gap-4">
@@ -60,7 +60,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       </div>
 
       {/* Móvil: la imagen llena el ancho (16:10). Escritorio: se muestra completa, sin recorte, con margen. */}
-      <div className="order-1 aspect-[16/10] overflow-hidden border-b border-border lg:order-2 lg:flex lg:aspect-auto lg:items-center lg:border-b-0 lg:border-l lg:p-8">
+      <div className="order-1 aspect-[16/10] overflow-hidden border-b border-border lg:order-2 lg:flex lg:aspect-auto lg:items-center lg:border-b-0 lg:border-l lg:p-6">
         <div className="h-full w-full overflow-hidden lg:h-auto lg:rounded-xl lg:border lg:border-border">
           <Image
             src={project.image}
@@ -68,7 +68,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             height={project.imageSize.height}
             alt={copy.imageAlt}
             fetchPriority="low"
-            sizes="(min-width: 1024px) 520px, 100vw"
+            quality={90}
+            sizes="(min-width: 1024px) 1000px, 100vw"
             className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03] lg:h-auto"
           />
         </div>

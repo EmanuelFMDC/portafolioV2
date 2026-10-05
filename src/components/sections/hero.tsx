@@ -53,6 +53,7 @@ export function Hero() {
             height={1876}
             loading="eager"
             fetchPriority="high"
+            quality={85}
             sizes="(min-width: 1024px) 260px, 45vw"
             alt={t("imageAlt.marketplace")}
             className="absolute left-0 top-0 h-auto w-[58%] rounded-2xl border border-border"
@@ -63,6 +64,7 @@ export function Hero() {
             height={1876}
             loading="eager"
             fetchPriority="low"
+            quality={85}
             sizes="(min-width: 1024px) 230px, 40vw"
             alt={t("imageAlt.repairs")}
             className="absolute bottom-0 right-0 h-auto w-[52%] rounded-2xl border border-border"

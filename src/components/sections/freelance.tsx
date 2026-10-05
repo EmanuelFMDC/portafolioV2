@@ -31,7 +31,8 @@ export function Freelance() {
                   height={900}
                   alt={t("imageAlt", { name: item.name })}
                   fetchPriority="low"
-                  sizes="(min-width: 768px) 560px, 100vw"
+                  quality={90}
+                  sizes="(min-width: 768px) 820px, 100vw"
                   className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>

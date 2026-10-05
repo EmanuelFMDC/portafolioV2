@@ -108,7 +108,8 @@ export default async function CasePage({ params }: CasePageProps) {
         alt={t(`projects.${slug}.imageAlt`)}
         loading="eager"
         fetchPriority="high"
-        sizes="(min-width: 768px) 768px, 100vw"
+        quality={90}
+        sizes="(min-width: 768px) 1100px, 100vw"
         className="mt-10 h-auto w-full rounded-2xl border border-border"
       />
 

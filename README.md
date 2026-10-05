@@ -63,6 +63,7 @@ e2e/                   pruebas Playwright
 
 - **Carpetas estáticas fuera de las rutas.** Los activos viven en `public/img` y `public/cv`. `public/proyectos` chocaría con la ruta `/proyectos/[slug]` porque el proxy reescribe las URLs en español. Si agregas otra carpeta pública, exclúyela en el `matcher` de `src/proxy.ts`.
 - **404 global.** El layout raíz está en un segmento dinámico (`[locale]`), así que Next exige `global-not-found` (experimental). Es bilingüe porque no conoce el idioma.
+- **Calidad de imagen.** Las capturas se sirven en AVIF (WebP de respaldo) a calidad 90, con archivos ~1.5x el tamaño mostrado para que se vean nítidas en pantallas 1x y 2x. `next.config.ts` limita `deviceSizes` a 1600 px porque los originales no pasan de ~1900 px: más grande solo escala sin ganar detalle. Si cambias una captura, sustitúyela por una de mayor resolución en `public/img`; el sitio no puede inventar detalle que el original no tiene.
 - **Movimiento sin JavaScript.** Las entradas usan CSS (`animation-timeline: view()` con degradación estática) y respetan `prefers-reduced-motion`. No hay librería de animación.
 - **Sin teléfono publicado.** Solo correo, LinkedIn y GitHub, para evitar spam.
 
