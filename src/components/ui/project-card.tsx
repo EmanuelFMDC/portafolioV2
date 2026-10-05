@@ -59,16 +59,19 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
       </div>
 
-      <div className="order-1 aspect-[16/10] overflow-hidden border-b border-border lg:order-2 lg:aspect-auto lg:border-b-0 lg:border-l">
-        <Image
-          src={project.image}
-          width={project.imageSize.width}
-          height={project.imageSize.height}
-          alt={copy.imageAlt}
-          fetchPriority="low"
-          sizes="(min-width: 1024px) 560px, 100vw"
-          className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-        />
+      {/* Móvil: la imagen llena el ancho (16:10). Escritorio: se muestra completa, sin recorte, con margen. */}
+      <div className="order-1 aspect-[16/10] overflow-hidden border-b border-border lg:order-2 lg:flex lg:aspect-auto lg:items-center lg:border-b-0 lg:border-l lg:p-8">
+        <div className="h-full w-full overflow-hidden lg:h-auto lg:rounded-xl lg:border lg:border-border">
+          <Image
+            src={project.image}
+            width={project.imageSize.width}
+            height={project.imageSize.height}
+            alt={copy.imageAlt}
+            fetchPriority="low"
+            sizes="(min-width: 1024px) 520px, 100vw"
+            className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03] lg:h-auto"
+          />
+        </div>
       </div>
     </li>
   );
