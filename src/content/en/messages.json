@@ -1,0 +1,18 @@
+{
+  "nav": {
+    "projects": "Projects",
+    "experience": "Experience",
+    "stack": "Stack",
+    "contact": "Contact",
+    "menu": "Menu",
+    "main": "Main navigation",
+    "skip": "Skip to content"
+  },
+  "common": {
+    "language": "Language"
+  },
+  "theme": {
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme"
+  }
+}
