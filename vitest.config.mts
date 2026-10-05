@@ -12,5 +12,6 @@ export default defineConfig({
     setupFiles: ["./vitest.setup.ts"],
     include: ["src/**/*.test.{ts,tsx}"],
     globals: true,
+    server: { deps: { inline: ["next-intl"] } },
   },
 });

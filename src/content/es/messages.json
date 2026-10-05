@@ -19,22 +19,26 @@
     "marketplace-renta": {
       "title": "Marketplace de renta de cuartos y casas",
       "summary": "PWA que conecta arrendadores e inquilinos con búsqueda, reservas y chat en tiempo real.",
-      "role": "Frontend completo"
+      "role": "Frontend completo",
+      "imageAlt": "Pantallas de la PWA de renta de cuartos y casas"
     },
     "plataforma-reparaciones": {
       "title": "Plataforma de reparaciones del hogar",
       "summary": "PWA tipo Uber con flujos separados para clientes y proveedores sobre el mismo producto.",
-      "role": "Frontend completo"
+      "role": "Frontend completo",
+      "imageAlt": "Pantallas de la plataforma de reparaciones del hogar"
     },
     "portal-soporte": {
       "title": "Portal de soporte con tickets",
       "summary": "Panel donde las empresas cliente levantan y siguen tickets de soporte y diseño, con acceso por Google.",
-      "role": "Desarrollo frontend"
+      "role": "Desarrollo frontend",
+      "imageAlt": "Tabla de tickets del portal de soporte con filtros por estado"
     },
     "automatizacion-facturacion": {
       "title": "Automatización de gastos y facturas",
       "summary": "App en Google Apps Script que lee el CFDI XML y llena la factura sola. Reemplazó la captura manual en Excel.",
-      "role": "Desarrollo completo"
+      "role": "Desarrollo completo",
+      "imageAlt": "Selector del tipo de captura en la app de gastos y facturas"
     }
   },
   "hero": {
@@ -52,5 +56,15 @@
       "marketplace": "Resumen del anfitrión en la PWA de renta de propiedades",
       "repairs": "Estadísticas de ingresos del proveedor en la plataforma de reparaciones"
     }
+  },
+  "projectsSection": {
+    "title": "Proyectos destacados",
+    "viewCase": "Ver caso"
+  },
+  "caseStudy": {
+    "back": "Todos los proyectos",
+    "next": "Siguiente proyecto",
+    "role": "Rol",
+    "stack": "Tecnologías"
   }
 }

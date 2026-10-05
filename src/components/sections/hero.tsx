@@ -48,7 +48,7 @@ export function Hero() {
 
         <div className="relative mx-auto aspect-[4/5] w-full max-w-sm lg:max-w-none">
           <Image
-            src="/proyectos/marketplace/anfitrion-resumen.jpg"
+            src="/img/proyectos/marketplace/anfitrion-resumen.jpg"
             width={900}
             height={1876}
             priority
@@ -57,7 +57,7 @@ export function Hero() {
             className="absolute left-0 top-0 h-auto w-[58%] rounded-2xl border border-border"
           />
           <Image
-            src="/proyectos/reparaciones/proveedor-estadisticas.jpg"
+            src="/img/proyectos/reparaciones/proveedor-estadisticas.jpg"
             width={900}
             height={1876}
             priority

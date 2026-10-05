@@ -43,22 +43,22 @@ export const site = {
     {
       name: "Nahual Consultores",
       url: "https://www.nahualconsultores.com",
-      image: "/freelance/nahual-consultores.jpg",
+      image: "/img/freelance/nahual-consultores.jpg",
     },
     {
       name: "Decoder",
       url: "https://decoder.mx",
-      image: "/freelance/decoder.jpg",
+      image: "/img/freelance/decoder.jpg",
     },
     {
       name: "Inmerza 360",
       url: "https://inmerza360.com",
-      image: "/freelance/inmerza360.jpg",
+      image: "/img/freelance/inmerza360.jpg",
     },
     {
       name: "Blackfire",
       url: "https://www.blackfiremx.com",
-      image: "/freelance/blackfire.jpg",
+      image: "/img/freelance/blackfire.jpg",
     },
   ],
 } as const;

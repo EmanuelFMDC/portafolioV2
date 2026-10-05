@@ -19,22 +19,26 @@
     "marketplace-renta": {
       "title": "Room and house rental marketplace",
       "summary": "PWA that connects landlords and tenants with search, bookings and real-time chat.",
-      "role": "Full frontend"
+      "role": "Full frontend",
+      "imageAlt": "Screens of the room and house rental PWA"
     },
     "plataforma-reparaciones": {
       "title": "Home repair services platform",
       "summary": "Uber-like PWA with separate flows for customers and service providers on the same product.",
-      "role": "Full frontend"
+      "role": "Full frontend",
+      "imageAlt": "Screens of the home repair services platform"
     },
     "portal-soporte": {
       "title": "Support ticket portal",
       "summary": "Dashboard where client companies open and track support and design tickets, with Google sign-in.",
-      "role": "Frontend development"
+      "role": "Frontend development",
+      "imageAlt": "Ticket table of the support portal with status filters"
     },
     "automatizacion-facturacion": {
       "title": "Expense and invoice automation",
       "summary": "Google Apps Script app that reads the CFDI XML and fills in the invoice by itself. It replaced manual entry in Excel.",
-      "role": "Full development"
+      "role": "Full development",
+      "imageAlt": "Capture type selector in the expense and invoice app"
     }
   },
   "hero": {
@@ -52,5 +56,15 @@
       "marketplace": "Host summary in the property rental PWA",
       "repairs": "Provider income statistics in the home repairs platform"
     }
+  },
+  "projectsSection": {
+    "title": "Selected projects",
+    "viewCase": "View case"
+  },
+  "caseStudy": {
+    "back": "All projects",
+    "next": "Next project",
+    "role": "Role",
+    "stack": "Technologies"
   }
 }
