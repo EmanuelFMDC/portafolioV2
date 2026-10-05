@@ -75,6 +75,13 @@ describe("Hero", () => {
     }
   });
 
+  it("la imagen que define el LCP se carga ya y con prioridad alta", () => {
+    renderHero("es");
+    const [first] = screen.getAllByRole("img");
+    expect(first).toHaveAttribute("fetchpriority", "high");
+    expect(first).toHaveAttribute("loading", "eager");
+  });
+
   it("las imágenes reales del hero tienen alt descriptivo", () => {
     renderHero("es");
     const images = screen.getAllByRole("img");

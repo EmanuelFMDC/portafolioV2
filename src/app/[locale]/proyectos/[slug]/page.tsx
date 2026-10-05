@@ -19,7 +19,7 @@ const PROSE =
   "[&_h3]:mb-2 [&_h3]:mt-8 [&_h3]:font-mono [&_h3]:text-sm [&_h3]:text-accent " +
   "[&_p]:my-4 [&_p]:max-w-[65ch] [&_p]:text-pretty [&_p]:text-muted " +
   "[&_ul]:my-4 [&_ul]:list-disc [&_ul]:pl-5 [&_li]:my-2 [&_li]:max-w-[65ch] [&_li]:text-muted " +
-  "[&_strong]:font-medium [&_strong]:text-fg";
+  "[&_strong]:font-normal [&_strong]:text-fg";
 
 export const dynamicParams = false;
 
@@ -106,7 +106,8 @@ export default async function CasePage({ params }: CasePageProps) {
         width={project.imageSize.width}
         height={project.imageSize.height}
         alt={t(`projects.${slug}.imageAlt`)}
-        priority
+        loading="eager"
+        fetchPriority="high"
         sizes="(min-width: 768px) 768px, 100vw"
         className="mt-10 h-auto w-full rounded-2xl border border-border"
       />

@@ -10,12 +10,14 @@ export const display = Instrument_Serif({
 
 export const body = Schibsted_Grotesk({
   subsets: ["latin"],
+  weight: "400",
   variable: "--font-body",
   display: "swap",
 });
 
 export const mono = JetBrains_Mono({
   subsets: ["latin"],
+  weight: ["400"],
   variable: "--font-mono",
   display: "swap",
 });

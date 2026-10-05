@@ -31,7 +31,7 @@ export function LanguageSwitcher({ current, label }: LanguageSwitcherProps) {
             href={switchLocalePath(pathname, locale)}
             hrefLang={locale}
             lang={locale}
-            aria-label={NAMES[locale]}
+            aria-label={`${locale.toUpperCase()} (${NAMES[locale]})`}
             className="inline-flex h-11 min-w-11 items-center justify-center rounded-full px-3 text-muted transition-colors hover:text-accent"
           >
             {locale.toUpperCase()}

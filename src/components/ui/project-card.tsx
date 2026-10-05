@@ -65,6 +65,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           width={project.imageSize.width}
           height={project.imageSize.height}
           alt={copy.imageAlt}
+          fetchPriority="low"
           sizes="(min-width: 1024px) 560px, 100vw"
           className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
         />

@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portafolio v2
 
-## Getting Started
+Portafolio bilingüe (español en `/`, inglés en `/en`) de Emanuel Frías, desarrollador frontend. Next.js 16 (App Router), React 19, TypeScript, Tailwind 4 y next-intl.
 
-First, run the development server:
+## Comandos
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # desarrollo en http://localhost:3000
+npm run build        # build de producción
+npm start            # sirve el build
+npm run lint
+npm run typecheck
+npm test             # Vitest + React Testing Library
+npm run test:e2e     # Playwright + axe (construye y levanta el sitio)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+La primera vez, `npx playwright install chromium` descarga el navegador de las pruebas E2E.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Variables de entorno
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copia `.env.example` a `.env.local`.
 
-## Learn More
+| Variable | Para qué sirve |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Dominio público. Alimenta canonical, hreflang, sitemap, Open Graph y JSON-LD. Por defecto `https://emanuelfmdc.vercel.app`. |
 
-To learn more about Next.js, take a look at the following resources:
+## Estructura
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+src/
+  app/[locale]/        layout, home, proyectos/[slug]
+  app/                 sitemap.ts, robots.ts, opengraph-image.tsx, global-not-found.tsx
+  components/          sections/ (secciones del home), layout/, ui/, motion/
+  content/
+    site.ts            datos que no cambian con el idioma (contacto, stack, sitios freelance)
+    projects.ts        lista y orden de proyectos (imagen, stack)
+    es/, en/           messages.json (todo el texto de la interfaz) y projects/*.mdx (casos)
+  i18n/                routing, request, navegación y recorte de mensajes para el cliente
+  lib/                 seo (metadata, JSON-LD), fuentes, utilidades
+  proxy.ts             proxy de next-intl (en Next 16 reemplaza a middleware)
+public/
+  img/                 capturas de proyectos y sitios freelance
+  cv/                  CV en español y en inglés
+e2e/                   pruebas Playwright
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Cómo agregar un proyecto
 
-## Deploy on Vercel
+1. Agrega la entrada en `src/content/projects.ts` (slug, imagen, tamaño y stack).
+2. Agrega `projects.<slug>` (`title`, `summary`, `role`, `imageAlt`) en `src/content/es/messages.json` y en `src/content/en/messages.json`.
+3. Crea `src/content/es/projects/<slug>.mdx` y `src/content/en/projects/<slug>.mdx`.
+4. Pon las imágenes en `public/img/proyectos/<carpeta>/`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`npm test` falla si falta el MDX de un idioma, una imagen, un `alt`, o una clave de traducción.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Cómo agregar un idioma
+
+1. Agrega el código en `routing.locales` (`src/i18n/routing.ts`) y su `messages.json` y MDX.
+2. Agrega su entrada en `OG_LOCALE`, `LANGUAGE` y `JOB_TITLE` de `src/lib/seo.ts`, y en `site.cv`.
+
+## Decisiones que conviene conocer
+
+- **Carpetas estáticas fuera de las rutas.** Los activos viven en `public/img` y `public/cv`. `public/proyectos` chocaría con la ruta `/proyectos/[slug]` porque el proxy reescribe las URLs en español. Si agregas otra carpeta pública, exclúyela en el `matcher` de `src/proxy.ts`.
+- **404 global.** El layout raíz está en un segmento dinámico (`[locale]`), así que Next exige `global-not-found` (experimental). Es bilingüe porque no conoce el idioma.
+- **Movimiento sin JavaScript.** Las entradas usan CSS (`animation-timeline: view()` con degradación estática) y respetan `prefers-reduced-motion`. No hay librería de animación.
+- **Sin teléfono publicado.** Solo correo, LinkedIn y GitHub, para evitar spam.
+
+## Despliegue
+
+Vercel. Define `NEXT_PUBLIC_SITE_URL` con el dominio final. GitHub Actions (`.github/workflows/ci.yml`) corre lint, typecheck, pruebas y build en cada pull request.

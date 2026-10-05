@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SkipLink } from "@/components/layout/skip-link";
 import { ThemeScript } from "@/components/ui/theme-script";
+import { pickClientMessages } from "@/i18n/client-messages";
 import { routing } from "@/i18n/routing";
 import { fonts } from "@/lib/fonts";
 import { getSiteUrl } from "@/lib/site-url";
@@ -43,7 +44,7 @@ export default async function LocaleLayout({
         <ThemeScript />
       </head>
       <body>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={locale} messages={pickClientMessages(messages)}>
           <SkipLink />
           <SiteHeader />
           {children}

@@ -30,6 +30,7 @@ export function Freelance() {
                   width={1440}
                   height={900}
                   alt={t("imageAlt", { name: item.name })}
+                  fetchPriority="low"
                   sizes="(min-width: 768px) 560px, 100vw"
                   className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.03]"
                 />

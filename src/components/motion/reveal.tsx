@@ -1,59 +1,33 @@
-"use client";
-
-import { useEffect, useRef, type ElementType, type ReactNode } from "react";
-import { useReducedMotion } from "./use-reduced-motion";
+import type { CSSProperties, ElementType, ReactNode } from "react";
 
 type RevealProps = {
   as?: ElementType;
+  // "load": entrada al cargar (hero). "scroll": entra al aparecer en pantalla.
+  on?: "load" | "scroll";
+  // Segundos de retraso; solo aplica a "load".
   delay?: number;
   className?: string;
   children: ReactNode;
 };
 
-// Visible por defecto: sin JS o con reduced motion el contenido queda estático.
+// Animación 100% CSS (ver globals.css): sin JavaScript, sin hidratación y sin
+// ocultar el contenido en estilos en línea. Con reduced motion o en navegadores
+// sin animation-timeline el contenido simplemente se ve.
 export function Reveal({
   as: Tag = "div",
+  on = "scroll",
   delay = 0,
   className,
   children,
 }: RevealProps) {
-  const ref = useRef<HTMLElement>(null);
-  const reduced = useReducedMotion();
-
-  useEffect(() => {
-    if (reduced || !ref.current) return;
-    const node = ref.current;
-    let cancelled = false;
-    let cleanup: (() => void) | undefined;
-
-    Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(
-      ([{ gsap }, { ScrollTrigger }]) => {
-        if (cancelled) return;
-        gsap.registerPlugin(ScrollTrigger);
-        const tween = gsap.from(node, {
-          opacity: 0,
-          y: 28,
-          duration: 0.9,
-          delay,
-          ease: "power3.out",
-          scrollTrigger: { trigger: node, start: "top 88%", once: true },
-        });
-        cleanup = () => {
-          tween.scrollTrigger?.kill();
-          tween.kill();
-          gsap.set(node, { clearProps: "opacity,transform" });
-        };
-      },
-    );
-
-    return () => {
-      cancelled = true;
-      cleanup?.();
-    };
-  }, [reduced, delay]);
+  const base = on === "load" ? "reveal-load" : "reveal-scroll";
+  const style =
+    on === "load" && delay > 0
+      ? ({ "--reveal-delay": `${delay}s` } as CSSProperties)
+      : undefined;
 
   return (
-    <Tag ref={ref} className={className}>
+    <Tag className={className ? `${base} ${className}` : base} style={style}>
       {children}
     </Tag>
   );

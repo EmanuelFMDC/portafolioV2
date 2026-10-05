@@ -6,7 +6,6 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: [
-      { find: /^gsap(?:\/ScrollTrigger)?$/, replacement: fileURLToPath(new URL("./src/test/gsap-stub.ts", import.meta.url)) },
       { find: "@", replacement: fileURLToPath(new URL("./src", import.meta.url)) },
     ],
   },

@@ -9,6 +9,10 @@ describe("routing", () => {
     expect(routing.localePrefix).toBe("as-needed");
   });
 
+  it("no añade el header Link hreflang (ya se genera en metadata)", () => {
+    expect(routing.alternateLinks).toBe(false);
+  });
+
   it("no redirige por Accept-Language", () => {
     expect(routing.localeDetection).toBe(false);
   });

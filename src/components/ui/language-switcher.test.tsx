@@ -26,6 +26,14 @@ describe("LanguageSwitcher", () => {
     );
   });
 
+  it("el nombre accesible incluye el texto visible (WCAG 2.5.3)", () => {
+    pathname.mockReturnValue("/");
+    render(<LanguageSwitcher current="es" label="Idioma" />);
+    const link = screen.getByRole("link");
+    expect(link).toHaveAccessibleName(/\bEN\b/);
+    expect(link).toHaveAccessibleName(/English/);
+  });
+
   it("marca el idioma actual con aria-current", () => {
     pathname.mockReturnValue("/");
     render(<LanguageSwitcher current="es" label="Idioma" />);

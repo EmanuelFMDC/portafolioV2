@@ -5,6 +5,8 @@ export const routing = defineRouting({
   defaultLocale: "es",
   localePrefix: "as-needed",
   localeDetection: false,
+  // El hreflang ya se genera en la metadata de cada página.
+  alternateLinks: false,
 });
 
 export type Locale = (typeof routing.locales)[number];

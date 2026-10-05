@@ -8,6 +8,8 @@ type CountUpProps = {
   suffix?: string;
 };
 
+const DURATION_MS = 1400;
+
 // El valor final ya está en el HTML del servidor; la animación solo parte de 0
 // tras montar, y no ocurre con reduced motion.
 export function CountUp({ to, suffix = "" }: CountUpProps) {
@@ -15,31 +17,25 @@ export function CountUp({ to, suffix = "" }: CountUpProps) {
   const reduced = useReducedMotion();
 
   useEffect(() => {
-    if (reduced || !ref.current) return;
     const node = ref.current;
-    let tween: { kill: () => void } | undefined;
-    let cancelled = false;
+    if (reduced || !node) return;
 
-    import("gsap").then(({ gsap }) => {
-      if (cancelled) return;
-      const counter = { value: 0 };
-      tween = gsap.to(counter, {
-        value: to,
-        duration: 1.6,
-        ease: "power2.out",
-        onUpdate: () => {
-          node.textContent = `${Math.round(counter.value)}${suffix}`;
-        },
-        onComplete: () => {
-          node.textContent = `${to}${suffix}`;
-        },
-      });
-    });
+    const final = `${to}${suffix}`;
+    let frame = 0;
+    const start = performance.now();
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / DURATION_MS, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      node.textContent =
+        progress < 1 ? `${Math.round(to * eased)}${suffix}` : final;
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
 
     return () => {
-      cancelled = true;
-      tween?.kill();
-      node.textContent = `${to}${suffix}`;
+      cancelAnimationFrame(frame);
+      node.textContent = final;
     };
   }, [reduced, to, suffix]);
 
