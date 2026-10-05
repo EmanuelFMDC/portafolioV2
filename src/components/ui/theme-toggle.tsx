@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark";
 
@@ -27,24 +27,41 @@ function resolveTheme(): Theme {
     : "dark";
 }
 
+const listeners = new Set<() => void>();
+
+function subscribe(listener: () => void) {
+  listeners.add(listener);
+  return () => listeners.delete(listener);
+}
+
+function applyTheme(theme: Theme) {
+  document.documentElement.dataset.theme = theme;
+  listeners.forEach((listener) => listener());
+}
+
+function getSnapshot(): Theme {
+  return document.documentElement.dataset.theme === "light" ? "light" : "dark";
+}
+
+function getServerSnapshot(): Theme {
+  return "dark";
+}
+
 export function ThemeToggle({ labels }: ThemeToggleProps) {
-  const [theme, setTheme] = useState<Theme>("dark");
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   useEffect(() => {
-    const resolved = resolveTheme();
-    document.documentElement.dataset.theme = resolved;
-    setTheme(resolved);
+    applyTheme(resolveTheme());
   }, []);
 
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
+    applyTheme(next);
     try {
       localStorage.setItem("theme", next);
     } catch {
       // Sin almacenamiento: el cambio solo dura la sesión.
     }
-    setTheme(next);
   }
 
   return (
