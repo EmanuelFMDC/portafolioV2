@@ -36,5 +36,21 @@
       "summary": "Google Apps Script app that reads the CFDI XML and fills in the invoice by itself. It replaced manual entry in Excel.",
       "role": "Full development"
     }
+  },
+  "hero": {
+    "availability": "Open to remote work",
+    "subtitle": "Frontend developer in React and TypeScript. I build PWAs with real-time messaging and end-to-end tests.",
+    "ctaProjects": "View projects",
+    "ctaCv": "Download CV",
+    "factsLabel": "Key figures",
+    "facts": {
+      "years": "years with React and TypeScript",
+      "screens": "screens built",
+      "endpoints": "API endpoints integrated"
+    },
+    "imageAlt": {
+      "marketplace": "Host summary in the property rental PWA",
+      "repairs": "Provider income statistics in the home repairs platform"
+    }
   }
 }

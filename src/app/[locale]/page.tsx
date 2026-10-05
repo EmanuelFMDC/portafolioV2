@@ -1,4 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
+import { Hero } from "@/components/sections/hero";
 
 type HomeProps = { params: Promise<{ locale: string }> };
 
@@ -7,7 +8,7 @@ export default async function Home({ params }: HomeProps) {
   setRequestLocale(locale);
   return (
     <main id="contenido">
-      <h1>Emanuel Frías</h1>
+      <Hero />
     </main>
   );
 }

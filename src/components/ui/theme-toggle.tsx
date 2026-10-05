@@ -1,5 +1,6 @@
 "use client";
 
+import { Moon, Sun } from "@phosphor-icons/react";
 import { useEffect, useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark";
@@ -72,9 +73,11 @@ export function ThemeToggle({ labels }: ThemeToggleProps) {
       aria-pressed={theme === "light"}
       className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-fg transition-colors hover:border-accent hover:text-accent"
     >
-      <span aria-hidden="true" className="font-mono text-sm">
-        {theme === "dark" ? "☾" : "☀"}
-      </span>
+      {theme === "dark" ? (
+        <Moon aria-hidden="true" size={20} weight="regular" />
+      ) : (
+        <Sun aria-hidden="true" size={20} weight="regular" />
+      )}
     </button>
   );
 }

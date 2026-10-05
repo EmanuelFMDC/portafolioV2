@@ -1,5 +1,6 @@
 "use client";
 
+import { List, X } from "@phosphor-icons/react";
 import { useRef, useState, type KeyboardEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
@@ -71,9 +72,11 @@ export function SiteHeader() {
             onClick={() => setOpen((value) => !value)}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border md:hidden"
           >
-            <span aria-hidden="true" className="font-mono text-sm">
-              {open ? "✕" : "☰"}
-            </span>
+            {open ? (
+              <X aria-hidden="true" size={20} />
+            ) : (
+              <List aria-hidden="true" size={20} />
+            )}
           </button>
         </div>
       </div>

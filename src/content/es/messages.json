@@ -36,5 +36,21 @@
       "summary": "App en Google Apps Script que lee el CFDI XML y llena la factura sola. Reemplazó la captura manual en Excel.",
       "role": "Desarrollo completo"
     }
+  },
+  "hero": {
+    "availability": "Disponible para trabajo remoto",
+    "subtitle": "Desarrollador frontend en React y TypeScript. Construyo PWA con mensajería en tiempo real y pruebas de punta a punta.",
+    "ctaProjects": "Ver proyectos",
+    "ctaCv": "Descargar CV",
+    "factsLabel": "Cifras clave",
+    "facts": {
+      "years": "años con React y TypeScript",
+      "screens": "pantallas construidas",
+      "endpoints": "endpoints de API integrados"
+    },
+    "imageAlt": {
+      "marketplace": "Resumen del anfitrión en la PWA de renta de propiedades",
+      "repairs": "Estadísticas de ingresos del proveedor en la plataforma de reparaciones"
+    }
   }
 }
