@@ -65,6 +65,19 @@ describe("SiteHeader", () => {
     expect(toggle).toHaveFocus();
   });
 
+  it("al abrir el menú móvil el foco pasa al primer enlace (WCAG 2.4.3)", async () => {
+    const user = userEvent.setup();
+    renderHeader();
+    const toggle = screen.getByRole("button", { name: es.nav.menu });
+    toggle.focus();
+    await user.keyboard("{Enter}");
+    const first = screen
+      .getByRole("navigation", { name: es.nav.main })
+      .querySelector("a") as HTMLAnchorElement;
+    expect(first).toHaveAttribute("href", "/#proyectos");
+    expect(first).toHaveFocus();
+  });
+
   it("los controles táctiles miden al menos 44 px (h-11)", () => {
     renderHeader();
     const toggle = screen.getByRole("button", { name: es.nav.menu });

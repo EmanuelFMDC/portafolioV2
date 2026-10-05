@@ -1,7 +1,7 @@
 "use client";
 
 import { List, X } from "@phosphor-icons/react";
-import { useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -21,6 +21,12 @@ export function SiteHeader() {
   const locale = useLocale() as Locale;
   const [open, setOpen] = useState(false);
   const toggleRef = useRef<HTMLButtonElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
+
+  // La lista va antes del botón en el DOM: al abrir, el foco debe entrar al menú.
+  useEffect(() => {
+    if (open) listRef.current?.querySelector("a")?.focus();
+  }, [open]);
 
   function onKeyDown(event: KeyboardEvent) {
     if (event.key === "Escape" && open) {
@@ -41,6 +47,7 @@ export function SiteHeader() {
 
         <nav aria-label={t("nav.main")} className="md:flex md:flex-1 md:justify-center">
           <ul
+            ref={listRef}
             id="primary-nav"
             className={`${
               open ? "flex" : "hidden"

@@ -72,6 +72,31 @@ describe("site", () => {
   });
 });
 
+function listSourceFiles(dir: string): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) return listSourceFiles(full);
+    const isSource = /\.(tsx?|mdx)$/.test(entry.name) && !/\.test\.tsx?$/.test(entry.name);
+    return isSource ? [full] : [];
+  });
+}
+
+describe("imágenes referenciadas", () => {
+  it("toda ruta /img/... escrita en el código o en los MDX existe en public", () => {
+    const missing: string[] = [];
+    let found = 0;
+    for (const file of listSourceFiles(join(root, "src"))) {
+      const text = readFileSync(file, "utf8");
+      for (const match of text.matchAll(/["`](\/img\/[^"`\s]+)["`]/g)) {
+        found += 1;
+        if (!existsSync(publicFile(match[1]))) missing.push(`${file}: ${match[1]}`);
+      }
+    }
+    expect(found).toBeGreaterThan(20);
+    expect(missing).toEqual([]);
+  });
+});
+
 describe("contenido publicable", () => {
   it("ningún MDX ni archivo de datos contiene TODO", () => {
     const files = [
