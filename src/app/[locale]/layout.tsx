@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
@@ -8,12 +9,15 @@ import { SkipLink } from "@/components/layout/skip-link";
 import { ThemeScript } from "@/components/ui/theme-script";
 import { routing } from "@/i18n/routing";
 import { fonts } from "@/lib/fonts";
+import { getSiteUrl } from "@/lib/site-url";
 import "../globals.css";
 
 type LocaleLayoutProps = {
   children: ReactNode;
   params: Promise<{ locale: string }>;
 };
+
+export const metadata: Metadata = { metadataBase: new URL(getSiteUrl()) };
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
@@ -7,6 +8,7 @@ import { projects } from "@/content/projects";
 import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { getProject, getProjectContent } from "@/lib/projects";
+import { absoluteUrl, breadcrumbJsonLd, buildMetadata, jsonLdString } from "@/lib/seo";
 
 type CasePageProps = {
   params: Promise<{ locale: string; slug: string }>;
@@ -27,6 +29,18 @@ export function generateStaticParams() {
   );
 }
 
+export async function generateMetadata({ params }: CasePageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
+  if (!hasLocale(routing.locales, locale) || !getProject(slug)) return {};
+  const t = await getTranslations({ locale });
+  return buildMetadata({
+    locale,
+    path: `/proyectos/${slug}`,
+    title: `${t(`projects.${slug}.title`)} | Emanuel Frías`,
+    description: t(`projects.${slug}.summary`),
+  });
+}
+
 export default async function CasePage({ params }: CasePageProps) {
   const { locale, slug } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
@@ -41,6 +55,17 @@ export default async function CasePage({ params }: CasePageProps) {
 
   return (
     <main id="contenido" className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:py-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: jsonLdString(
+            breadcrumbJsonLd([
+              { name: t("meta.home.crumb"), url: absoluteUrl(locale, "/") },
+              { name: t(`projects.${slug}.title`), url: absoluteUrl(locale, `/proyectos/${slug}`) },
+            ]),
+          ),
+        }}
+      />
       <Link
         href="/#proyectos"
         className="inline-flex min-h-11 items-center gap-2 font-mono text-sm text-muted transition-colors hover:text-accent"

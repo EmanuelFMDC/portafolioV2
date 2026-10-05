@@ -124,5 +124,12 @@
   "contact": {
     "title": "Contact",
     "lead": "Open to remote frontend roles. Email is the most direct way to reach me."
+  },
+  "meta": {
+    "home": {
+      "title": "Emanuel Frías | Frontend Developer in React and TypeScript",
+      "description": "Portfolio of Emanuel Frías, a frontend developer in Guadalajara with 4+ years in React and TypeScript. PWAs, real-time messaging and end-to-end testing.",
+      "crumb": "Home"
+    }
   }
 }
