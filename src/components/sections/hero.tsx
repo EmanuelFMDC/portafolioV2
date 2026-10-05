@@ -1,10 +1,18 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
+import { ArrowsLeftRight, Code, DeviceMobile } from "@phosphor-icons/react/dist/ssr";
 import { Magnetic } from "@/components/motion/magnetic";
 import { CountUp } from "@/components/motion/count-up";
 import { Reveal } from "@/components/motion/reveal";
 import { site } from "@/content/site";
 import type { Locale } from "@/i18n/routing";
+
+// Los iconos solo se ven en móvil, donde las cifras son tarjetas.
+const FACT_ICONS = {
+  years: Code,
+  screens: DeviceMobile,
+  endpoints: ArrowsLeftRight,
+} as const;
 
 export function Hero() {
   const t = useTranslations("hero");
@@ -13,7 +21,7 @@ export function Hero() {
   return (
     <section>
       <div className="mx-auto grid min-h-[calc(100dvh-4rem)] max-w-6xl items-center gap-12 px-4 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:py-16">
-        <div className="flex flex-col items-start gap-8">
+        <div className="flex flex-col items-start gap-6 sm:gap-8">
           <Reveal as="p" on="load" className="font-mono text-sm text-accent">
             {t("availability")}
           </Reveal>
@@ -75,16 +83,25 @@ export function Hero() {
       <div className="border-t border-border">
         <ul
           aria-label={t("factsLabel")}
-          className="mx-auto grid max-w-6xl grid-cols-1 gap-8 px-4 py-10 sm:grid-cols-3 sm:px-6"
+          className="mx-auto grid max-w-6xl grid-cols-3 gap-3 px-4 py-8 sm:gap-8 sm:px-6 sm:py-10"
         >
-          {site.facts.map((fact) => (
-            <li key={fact.id} className="flex flex-col gap-1">
-              <span className="font-display text-5xl leading-none">
-                <CountUp to={fact.value} suffix={fact.suffix} />
-              </span>
-              <span className="text-sm text-muted">{t(`facts.${fact.id}`)}</span>
-            </li>
-          ))}
+          {site.facts.map((fact) => {
+            const Icon = FACT_ICONS[fact.id];
+            return (
+              <li
+                key={fact.id}
+                className="flex flex-col gap-3 rounded-2xl border border-border bg-surface p-4 sm:gap-1 sm:rounded-none sm:border-0 sm:bg-transparent sm:p-0"
+              >
+                <Icon aria-hidden="true" size={24} className="text-accent sm:hidden" />
+                <span className="font-display text-5xl leading-none">
+                  <CountUp to={fact.value} suffix={fact.suffix} />
+                </span>
+                <span className="text-xs leading-snug text-muted sm:text-sm">
+                  {t(`facts.${fact.id}`)}
+                </span>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>
