@@ -66,5 +66,63 @@
     "next": "Next project",
     "role": "Role",
     "stack": "Technologies"
+  },
+  "experience": {
+    "title": "Experience",
+    "jobs": {
+      "nahual": {
+        "company": "Nahual Consultores",
+        "role": "Frontend Developer",
+        "period": "Jan 2025 - Sep 2026",
+        "highlights": [
+          "Complete frontend of 2 marketplace PWAs (pre-launch): architecture, state management and API integration.",
+          "25+ screens, real-time messaging over WebSockets and 50+ REST API endpoints integrated, with JWT authentication and protected routes.",
+          "25+ unit and integration tests with Vitest and React Testing Library, plus end-to-end Playwright tests for login, sign-up, search, bookings and profile.",
+          "Automated the invoicing process with Google Apps Script, replacing manual Excel work.",
+          "5+ static websites with HTML5 and CSS3, optimized for SEO and load speed."
+        ]
+      },
+      "freelance": {
+        "company": "Freelance",
+        "role": "Frontend Developer",
+        "period": "Jun 2022 - Dec 2024",
+        "highlights": [
+          "10+ websites and landing pages for small businesses across industries, with React and Tailwind CSS.",
+          "Every project end to end: client requirements, responsive design, development and deployment.",
+          "Sites optimized for mobile, SEO and load speed."
+        ]
+      }
+    }
+  },
+  "stack": {
+    "title": "Stack",
+    "groups": {
+      "languages": "Languages",
+      "frontend": "Frontend",
+      "ui": "UI",
+      "testing": "Testing",
+      "tools": "Tools"
+    },
+    "learning": "Learning now"
+  },
+  "freelance": {
+    "title": "Freelance work",
+    "intro": "Sites for small businesses that are still live.",
+    "visit": "Visit site",
+    "imageAlt": "Screenshot of the {name} website"
+  },
+  "about": {
+    "title": "About me",
+    "bio": "I am a frontend developer with 4+ years of experience in React and TypeScript. I built end to end the frontend of 2 marketplace PWAs, and before that I made 10+ sites for small businesses as a freelancer. Today I am adding Next.js and Node.js to my stack.",
+    "location": "Location",
+    "locationValue": "Guadalajara, Jalisco. Open to remote work.",
+    "languages": "Languages",
+    "languagesValue": "Spanish native, English B1 (intermediate).",
+    "education": "Education",
+    "educationValue": "B.S. in Software Development Engineering, CETI (expected 2027)."
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Open to remote frontend roles. Email is the most direct way to reach me."
   }
 }

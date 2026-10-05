@@ -66,5 +66,63 @@
     "next": "Siguiente proyecto",
     "role": "Rol",
     "stack": "Tecnologías"
+  },
+  "experience": {
+    "title": "Experiencia",
+    "jobs": {
+      "nahual": {
+        "company": "Nahual Consultores",
+        "role": "Desarrollador Frontend",
+        "period": "01/2025 - 09/2026",
+        "highlights": [
+          "Frontend completo de 2 PWA tipo marketplace (fase previa a lanzamiento): arquitectura, manejo de estado e integración con APIs.",
+          "Más de 25 pantallas, mensajería en tiempo real con WebSockets y más de 50 endpoints de API REST integrados, con autenticación JWT y rutas protegidas.",
+          "Más de 25 pruebas con Vitest y React Testing Library, y pruebas de punta a punta con Playwright en login, registro, búsqueda, reservaciones y perfil.",
+          "Automaticé el proceso de facturación con Google Apps Script, reemplazando trabajo manual en Excel.",
+          "Más de 5 sitios web estáticos con HTML5 y CSS3, optimizados para SEO y velocidad de carga."
+        ]
+      },
+      "freelance": {
+        "company": "Freelance",
+        "role": "Desarrollador Frontend",
+        "period": "06/2022 - 12/2024",
+        "highlights": [
+          "Más de 10 sitios web y landing pages para pequeñas empresas de distintos sectores, con React y Tailwind CSS.",
+          "Cada proyecto de principio a fin: requerimientos con el cliente, diseño responsivo, desarrollo y publicación.",
+          "Sitios optimizados para móviles, SEO y velocidad de carga."
+        ]
+      }
+    }
+  },
+  "stack": {
+    "title": "Stack",
+    "groups": {
+      "languages": "Lenguajes",
+      "frontend": "Frontend",
+      "ui": "UI",
+      "testing": "Testing",
+      "tools": "Herramientas"
+    },
+    "learning": "Aprendiendo ahora"
+  },
+  "freelance": {
+    "title": "Trabajo freelance",
+    "intro": "Sitios para pequeñas empresas que siguen en línea.",
+    "visit": "Visitar sitio",
+    "imageAlt": "Captura del sitio de {name}"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "bio": "Soy desarrollador frontend con más de 4 años de experiencia en React y TypeScript. Desarrollé de principio a fin el frontend de 2 PWA tipo marketplace y antes hice más de 10 sitios para pequeñas empresas como freelance. Hoy estoy sumando Next.js y Node.js a mi stack.",
+    "location": "Ubicación",
+    "locationValue": "Guadalajara, Jalisco. Abierto a trabajo remoto.",
+    "languages": "Idiomas",
+    "languagesValue": "Español nativo, inglés B1 (intermedio).",
+    "education": "Educación",
+    "educationValue": "Ingeniería en Desarrollo de Software, CETI (egreso esperado 2027)."
+  },
+  "contact": {
+    "title": "Contacto",
+    "lead": "Abierto a roles frontend remotos. El correo es la forma más directa de escribirme."
   }
 }
