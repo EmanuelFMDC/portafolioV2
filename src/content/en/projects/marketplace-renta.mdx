@@ -1,0 +1,36 @@
+## Context and problem
+
+Landlords and tenants needed to find each other, book and talk without leaving the app. It is a pre-launch PWA, so it had to work well on a phone.
+
+## My role and scope
+
+I built the complete frontend: the architecture, state management, API integration and 25+ screens, including real-time messaging.
+
+## How it works
+
+- **Access.** Email and password, Google sign-in, sign-up and guest entry to explore without an account.
+- **Search.** Properties with filters, detail pages and property listing.
+- **Host dashboard.** Weekly summary, properties, requests, payments and messages in tabs. It shows how many properties are published against the plan limit and whether the account is verified.
+- **Two languages.** The whole interface switches between Spanish and English from the header.
+- **Account.** Profile, payment methods, language, support and policies.
+
+<PhoneGallery
+  caption="Only three screens: real user data, the product name and its logo are hidden."
+  images={[
+    { src: "/proyectos/marketplace/login.png", width: 367, height: 576, alt: "Sign-in screen with email, password, Google and guest entry" },
+    { src: "/proyectos/marketplace/anfitrion-resumen.jpg", width: 900, height: 1876, alt: "Host summary with tabs, published properties and a verified account" },
+    { src: "/proyectos/marketplace/cuenta.png", width: 397, height: 886, alt: "Account screen with profile, payment methods, languages, support and privacy" },
+  ]}
+/>
+
+## Technical decisions
+
+- **Global state with Redux Toolkit** and routing with React Router.
+- **REST API with Axios.** I integrated 50+ endpoints across both PWAs, with JWT authentication and protected routes.
+- **Chat over WebSockets** for real-time messaging between landlord and tenant.
+- **Responsive, mobile-first interface** with Material UI and Tailwind CSS.
+- **Testing.** Vitest and React Testing Library for components and integration, and end-to-end Playwright tests for login, sign-up, search, bookings and profile updates.
+
+## Outcome
+
+I delivered the complete frontend of the PWA, ready for its pre-launch phase: 25+ screens, real-time messaging and the key flows covered by end-to-end tests.

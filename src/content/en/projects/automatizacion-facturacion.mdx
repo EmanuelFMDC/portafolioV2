@@ -1,0 +1,44 @@
+## Context and problem
+
+The sales and purchasing teams invoiced by hand in Excel. The process was slow and prone to data-entry errors.
+
+## My role and scope
+
+I built a web application for recording expenses with Google Apps Script, with forms, validations and a supplier catalog.
+
+## How it works
+
+When recording an expense you choose between two capture types.
+
+- **XML invoice.** You upload the CFDI (the Mexican electronic invoice) and the application fills in the UUID, the supplier, the amounts and the line items by itself. Nobody retypes them.
+- **Cash payment.** Manual entry for petty cash, travel expenses or receipts without XML, with required fields and tax information as optional.
+
+<Figure
+  src="/proyectos/automatizacion/tipo-de-captura.png"
+  width={1078}
+  height={607}
+  alt="Capture type selector: XML invoice or cash payment"
+  caption="First step: choose the capture type."
+/>
+
+<Figure
+  src="/proyectos/automatizacion/captura-xml.png"
+  width={1115}
+  height={770}
+  alt="XML capture form with an area to drag the file and the invoice information"
+  caption="XML capture: drag the file and the invoice data is filled in."
+/>
+
+<Figure
+  src="/proyectos/automatizacion/captura-manual.png"
+  width={1082}
+  height={755}
+  alt="Manual capture form with supplier, date, total, currency and notes"
+  caption="Manual capture: supplier with search, date, total, currency and required notes."
+/>
+
+The application also tracks the current check (folio, amount and remaining balance) and a supplier catalog with their credit days.
+
+## Outcome
+
+It replaced the manual Excel work of the sales and purchasing teams: the invoice XML fills in the data by itself, and manual entry is left for expenses without a receipt.

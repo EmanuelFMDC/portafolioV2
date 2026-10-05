@@ -14,5 +14,27 @@
   "theme": {
     "toLight": "Cambiar a tema claro",
     "toDark": "Cambiar a tema oscuro"
+  },
+  "projects": {
+    "marketplace-renta": {
+      "title": "Marketplace de renta de cuartos y casas",
+      "summary": "PWA que conecta arrendadores e inquilinos con búsqueda, reservas y chat en tiempo real.",
+      "role": "Frontend completo"
+    },
+    "plataforma-reparaciones": {
+      "title": "Plataforma de reparaciones del hogar",
+      "summary": "PWA tipo Uber con flujos separados para clientes y proveedores sobre el mismo producto.",
+      "role": "Frontend completo"
+    },
+    "portal-soporte": {
+      "title": "Portal de soporte con tickets",
+      "summary": "Panel donde las empresas cliente levantan y siguen tickets de soporte y diseño, con acceso por Google.",
+      "role": "Desarrollo frontend"
+    },
+    "automatizacion-facturacion": {
+      "title": "Automatización de gastos y facturas",
+      "summary": "App en Google Apps Script que lee el CFDI XML y llena la factura sola. Reemplazó la captura manual en Excel.",
+      "role": "Desarrollo completo"
+    }
   }
 }

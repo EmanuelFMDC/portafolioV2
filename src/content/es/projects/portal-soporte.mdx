@@ -1,0 +1,50 @@
+## Contexto y problema
+
+Un panel interno donde las empresas cliente levantan tickets de soporte técnico y de diseño, y siguen su estado hasta que se completan.
+
+## Mi rol y alcance
+
+Frontend en React y TypeScript, con Redux para el estado, React Router para la navegación y Axios para consumir la API. Pruebas con Vitest y Playwright.
+
+## Cómo funciona
+
+- **Acceso con la cuenta de Google de la empresa.** El inicio de sesión usa SSO de Google Workspace. Una empresa sin acceso puede solicitar registro desde la misma pantalla.
+- **Tabla de tickets con filtros.** Se filtra por número, usuario, descripción, tipo y status (abierto, en progreso, completado), y se ordena por última actualización.
+- **Alta de tickets guiada.** El formulario cambia según el tipo: diseño (impreso o digital) o soporte técnico. Acepta evidencia arrastrando imágenes, PDF o documentos de Word de hasta 10 MB.
+- **Configuración de la cuenta.** Modo oscuro, vencimiento del servicio, pagos, alcances del plan y reportes de uso.
+
+<Figure
+  src="/proyectos/portal-soporte/login.png"
+  width={1882}
+  height={1012}
+  alt="Pantalla de inicio de sesión con el botón Continuar con Google"
+  caption="Inicio de sesión con la cuenta corporativa de Google."
+/>
+
+<Figure
+  src="/proyectos/portal-soporte/crear-ticket.png"
+  width={1878}
+  height={1011}
+  alt="Modal Crear Nuevo Ticket con tipo de ticket, tipo de diseño, descripción y zona para adjuntar evidencia"
+  caption="Crear ticket: el formulario se adapta al tipo de solicitud."
+/>
+
+<Figure
+  src="/proyectos/portal-soporte/configuracion.png"
+  width={1902}
+  height={877}
+  alt="Pantalla de configuración con opciones de apariencia, vencimiento, pagos, alcances y reportes"
+  caption="Configuración de la cuenta de cada empresa."
+/>
+
+Los correos y las descripciones de los tickets están ocultos en las capturas.
+
+## Decisiones técnicas
+
+- **Estado con Redux** y rutas con React Router.
+- **Formularios que se adaptan al tipo de solicitud**, con carga de evidencia por arrastre y validación de formato y tamaño.
+- **Pruebas** con Vitest para la lógica y Playwright para los flujos principales.
+
+## Resultado
+
+Las empresas cliente levantan y siguen sus solicitudes en un solo lugar, con filtros por estado y evidencia adjunta, y entran con la cuenta de Google que ya usan.

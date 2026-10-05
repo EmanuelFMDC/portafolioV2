@@ -1,0 +1,50 @@
+## Context and problem
+
+An internal dashboard where client companies open technical support and design tickets and follow their status until they are completed.
+
+## My role and scope
+
+Frontend in React and TypeScript, with Redux for state, React Router for navigation and Axios to consume the API. Tests with Vitest and Playwright.
+
+## How it works
+
+- **Sign-in with the company's Google account.** Login uses Google Workspace SSO. A company without access can request registration from the same screen.
+- **Ticket table with filters.** Filter by number, user, description, type and status (open, in progress, completed), sorted by last update.
+- **Guided ticket creation.** The form changes by type: design (print or digital) or technical support. It accepts evidence by dragging images, PDFs or Word documents up to 10 MB.
+- **Account settings.** Dark mode, service expiry, payments, plan scope and usage reports.
+
+<Figure
+  src="/proyectos/portal-soporte/login.png"
+  width={1882}
+  height={1012}
+  alt="Sign-in screen with the Continue with Google button"
+  caption="Sign-in with the corporate Google account."
+/>
+
+<Figure
+  src="/proyectos/portal-soporte/crear-ticket.png"
+  width={1878}
+  height={1011}
+  alt="Create New Ticket modal with ticket type, design type, description and an area to attach evidence"
+  caption="Create ticket: the form adapts to the type of request."
+/>
+
+<Figure
+  src="/proyectos/portal-soporte/configuracion.png"
+  width={1902}
+  height={877}
+  alt="Settings screen with appearance, expiry, payments, plan scope and reports options"
+  caption="Account settings for each company."
+/>
+
+Emails and ticket descriptions are hidden in the screenshots.
+
+## Technical decisions
+
+- **State with Redux** and routing with React Router.
+- **Forms that adapt to the type of request**, with drag-and-drop evidence upload and format and size validation.
+- **Testing** with Vitest for the logic and Playwright for the main flows.
+
+## Outcome
+
+Client companies open and follow their requests in one place, with status filters and attached evidence, and sign in with the Google account they already use.

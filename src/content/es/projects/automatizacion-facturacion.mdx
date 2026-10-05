@@ -1,0 +1,44 @@
+## Contexto y problema
+
+Los equipos de ventas y compras facturaban a mano en Excel. El proceso era lento y propenso a errores de captura.
+
+## Mi rol y alcance
+
+Construí con Google Apps Script una aplicación web para capturar gastos, con formularios, validaciones y un catálogo de proveedores.
+
+## Cómo funciona
+
+Al registrar un gasto se elige entre dos tipos de captura.
+
+- **Factura XML.** Se sube el CFDI y la aplicación llena sola el UUID, el proveedor, los importes y los conceptos. Nadie los vuelve a teclear.
+- **Pago en efectivo.** Captura manual para caja chica, viáticos o comprobantes sin XML, con campos obligatorios y la información fiscal como opcional.
+
+<Figure
+  src="/proyectos/automatizacion/tipo-de-captura.png"
+  width={1078}
+  height={607}
+  alt="Selector del tipo de captura: factura XML o pago en efectivo"
+  caption="Primer paso: elegir el tipo de captura."
+/>
+
+<Figure
+  src="/proyectos/automatizacion/captura-xml.png"
+  width={1115}
+  height={770}
+  alt="Formulario de captura por XML con zona para arrastrar el archivo y la información de la factura"
+  caption="Captura mediante XML: se arrastra el archivo y se llenan los datos de la factura."
+/>
+
+<Figure
+  src="/proyectos/automatizacion/captura-manual.png"
+  width={1082}
+  height={755}
+  alt="Formulario de captura manual con proveedor, fecha, total, moneda y notas"
+  caption="Captura manual: proveedor con búsqueda, fecha, total, moneda y notas obligatorias."
+/>
+
+La aplicación también lleva el control del cheque en curso (folio, monto y saldo restante) y un catálogo de proveedores con sus días de crédito.
+
+## Resultado
+
+Reemplazó el trabajo manual en Excel de los equipos de ventas y compras: el XML de la factura llena los datos solo, y la captura manual queda para los gastos que no tienen comprobante.

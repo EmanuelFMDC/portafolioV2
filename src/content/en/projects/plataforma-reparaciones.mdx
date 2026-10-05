@@ -1,0 +1,51 @@
+## Context and problem
+
+One product with two very different users: the customer who requests a repair and the provider who handles it. Each one needs their own flow without duplicating the application.
+
+## My role and scope
+
+I built the frontend of both flows: service requests, status tracking, profiles and ratings.
+
+## How it works
+
+Each type of user has their own navigation: the customer uses a classic bottom bar and the provider a floating bar.
+
+### Customer app
+
+- **Home.** Shows the active request and a shortcut to create a service.
+- **Create service.** Service type, saved address and a description of the problem. If there are no addresses, it offers to add one right there.
+- **Profile.** Personal information, payment methods, addresses, settings, privacy and help.
+
+<PhoneGallery
+  images={[
+    { src: "/proyectos/reparaciones/cliente-inicio.jpg", width: 900, height: 1876, alt: "Customer home with the active request and the Create service button" },
+    { src: "/proyectos/reparaciones/cliente-crear-servicio.jpg", width: 900, height: 1876, alt: "Create service form with type, address and problem description" },
+    { src: "/proyectos/reparaciones/cliente-perfil.jpg", width: 900, height: 1876, alt: "Customer profile with account, payment methods, addresses and preferences" },
+  ]}
+/>
+
+### Provider app
+
+- **Availability.** The provider holds a button to go active or inactive, and a timer shows how long they have been active.
+- **Statistics.** Income, completed and active services, and average per service, with a period filter and an income chart.
+- **Ratings.** Average, distribution by stars and recent customer comments.
+
+<PhoneGallery
+  caption="Customer and provider names are hidden."
+  images={[
+    { src: "/proyectos/reparaciones/proveedor-inicio.jpg", width: 900, height: 1876, alt: "Provider home with their active status, timer and a button to change status" },
+    { src: "/proyectos/reparaciones/proveedor-estadisticas.jpg", width: 900, height: 1876, alt: "Provider statistics with income, services and a chart for the period" },
+    { src: "/proyectos/reparaciones/proveedor-calificaciones.jpg", width: 900, height: 1876, alt: "Provider average rating with distribution by stars and comments" },
+  ]}
+/>
+
+## Technical decisions
+
+- **Separate flows per user type** on a single codebase, each with its own navigation and screens.
+- **Status tracking for every request**, visible to both the customer and the provider.
+- **State with Redux Toolkit**, REST API with Axios and JWT authentication with protected routes.
+- **Responsive, mobile-first interface with Tailwind CSS.**
+
+## Outcome
+
+A PWA with two complete experiences, the customer's and the provider's, built on the same product and ready for its pre-launch phase.

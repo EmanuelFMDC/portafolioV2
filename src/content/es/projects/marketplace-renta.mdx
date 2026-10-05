@@ -1,0 +1,36 @@
+## Contexto y problema
+
+Arrendadores e inquilinos necesitaban encontrarse, reservar y hablar sin salir de la app. Es una PWA en fase previa a lanzamiento, así que tenía que funcionar bien en el celular.
+
+## Mi rol y alcance
+
+Construí el frontend completo: la arquitectura, el manejo de estado, la integración con la API y más de 25 pantallas, incluida la mensajería en tiempo real.
+
+## Cómo funciona
+
+- **Acceso.** Correo y contraseña, inicio con Google, registro y entrada como invitado para explorar sin cuenta.
+- **Búsqueda.** Propiedades con filtros, detalle y publicación de propiedades.
+- **Panel del anfitrión.** Resumen de la semana, propiedades, solicitudes, pagos y mensajes en pestañas. Muestra cuántas propiedades lleva publicadas frente al límite de su plan y si su cuenta está verificada.
+- **Dos idiomas.** Toda la interfaz cambia entre español e inglés desde el encabezado.
+- **Cuenta.** Perfil, métodos de pago, idioma, soporte y políticas.
+
+<PhoneGallery
+  caption="Solo tres pantallas: los datos de usuarios reales, el nombre y el logo del producto están ocultos."
+  images={[
+    { src: "/proyectos/marketplace/login.png", width: 367, height: 576, alt: "Pantalla de inicio de sesión con correo, contraseña, Google y entrada como invitado" },
+    { src: "/proyectos/marketplace/anfitrion-resumen.jpg", width: 900, height: 1876, alt: "Resumen del anfitrión con pestañas, propiedades publicadas y cuenta verificada" },
+    { src: "/proyectos/marketplace/cuenta.png", width: 397, height: 886, alt: "Pantalla de cuenta con perfil, métodos de pago, idiomas, soporte y privacidad" },
+  ]}
+/>
+
+## Decisiones técnicas
+
+- **Estado global con Redux Toolkit** y navegación con React Router.
+- **API REST con Axios.** Integré más de 50 endpoints entre las dos PWA, con autenticación JWT y rutas protegidas.
+- **Chat con WebSockets** para la mensajería en tiempo real entre arrendador e inquilino.
+- **Interfaz responsiva y mobile-first** con Material UI y Tailwind CSS.
+- **Pruebas.** Vitest y React Testing Library para componentes e integración, y Playwright de punta a punta para login, registro, búsqueda, reservaciones y actualización de perfil.
+
+## Resultado
+
+Entregué el frontend completo de la PWA, listo para su fase previa al lanzamiento: más de 25 pantallas, mensajería en tiempo real y los flujos clave cubiertos con pruebas de punta a punta.

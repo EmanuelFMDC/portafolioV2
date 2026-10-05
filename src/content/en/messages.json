@@ -14,5 +14,27 @@
   "theme": {
     "toLight": "Switch to light theme",
     "toDark": "Switch to dark theme"
+  },
+  "projects": {
+    "marketplace-renta": {
+      "title": "Room and house rental marketplace",
+      "summary": "PWA that connects landlords and tenants with search, bookings and real-time chat.",
+      "role": "Full frontend"
+    },
+    "plataforma-reparaciones": {
+      "title": "Home repair services platform",
+      "summary": "Uber-like PWA with separate flows for customers and service providers on the same product.",
+      "role": "Full frontend"
+    },
+    "portal-soporte": {
+      "title": "Support ticket portal",
+      "summary": "Dashboard where client companies open and track support and design tickets, with Google sign-in.",
+      "role": "Frontend development"
+    },
+    "automatizacion-facturacion": {
+      "title": "Expense and invoice automation",
+      "summary": "Google Apps Script app that reads the CFDI XML and fills in the invoice by itself. It replaced manual entry in Excel.",
+      "role": "Full development"
+    }
   }
 }
